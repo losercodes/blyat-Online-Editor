@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(30, 30, 30);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  margin-bottom: 30px;
+}
+
+.navbar .brand {
+  font-family: 'Michroma', sans-serif;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.brand .logo {
+  margin-top: 8px;
+}
+
+.select-container {
+  color: black;
+  width: 25vw;
+}
+
+.select-dropdown {
+  width: 100%;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 769px) {
+  .navbar .brand {
+    font-size: 1.5rem;
+  }
+
+  .brand .logo {
+    margin-top: 6px;
+  }
+
+  .brand .logo img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .select-container {
+    width: 30vw;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .navbar .brand {
+    font-size: 1rem;
+  }
+
+  .brand .logo {
+    margin-top: 4px;
+  }
+
+  .brand .logo img {
+    height: 32px;
+    width: 32px;
+  }
+
+  .select-container {
+    width: 33vw;
+    font-size: 0.7rem;
+  }
+}
+
+
+/* main grid */
+.container {
+  font-family: 'Ubuntu Mono', monospace;
+  display: grid;
+  height: 80vh;
+  width: 90vw;
+  gap: 20px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  margin: 10px auto;
+}
+
+/* general props */
+.container > * {
+  border-radius: 20px;
+  padding: 20px 10px;
+  border: 5px;
+  border-style: solid;
+  background-color: white;
+}
+
+/* specific props */
+.container > :first-child {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+@media screen and (max-width: 769px) {
+  .container {
+    height: 120vh;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 3fr) minmax(0, 2fr);
+  }
+  .container > :first-child {
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .container {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 4fr) repeat(2, minmax(0, 2fr));
+  }
+  .container > :first-child {
+    grid-column-end: 2;
+  }
+}
+
+
+/* headings of each component */
+.heading {
+  font-size: 1.5rem;
+}
+
+
+/* editor */
+
+/* banner */
+.banner {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* buttons */
+.buttons{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.run-btn {
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: opacity(0.8);
+}
+
+.run-btn img {
+  height: 28px;
+  width: 28px;
+}
+
+.run-btn:disabled, .run-btn:disabled:active{
+  filter: opacity(0.6);
+  background-color: white;
+  cursor: default;
+}
+
+.run-btn:active {
+  filter: opacity (1);
+  filter:  brightness(0.8);
+}
+
+.copy-btn {
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+  padding: 0;
+  border: none;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: opacity(0.8);
+}
+
+.copy-btn img {
+  height: 24px;
+  width: 24px;
+}
+
+.copy-btn:disabled, .copy-btn:disabled:active{
+  filter: opacity(0.6);
+  background-color: transparent;
+  cursor: default;
+}
+
+.copy-btn:active {
+  filter: opacity(1);
+}
+
+.clear-btn {
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+  padding: 0;
+  border: none;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: opacity(0.8);
+}
+
+.clear-btn img {
+  height: 24px;
+  width: 24px;
+}
+
+.clear-btn:disabled, .clear-btn:disabled:active{
+  filter: opacity(0.6);
+  background-color: transparent;
+  cursor: default;
+}
+
+.clear-btn:active {
+  filter: opacity(1);
+}
+
+
+/* editor field */
+.editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.editor-container {
+  height: 90%;
+}
+
+.editor-field::-webkit-scrollbar {
+  width: 5px;
+}
+
+.editor-field::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.editor-field::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 25px;
+}
+
+.editor-field::-webkit-scrollbar-thumb:hover {
+  background: rgb(95, 95, 95);
+}
+
+
+/* input */
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input-container {
+  height: 85%;
+}
+
+.input-field {
+  word-wrap: normal;
+  font-size: 1rem;
+  height: 100%;
+  max-height: 100%;
+  width: 98%;
+  max-width: 98%;
+}
+
+.input-field::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.input-field::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 25px;
+}
+
+.input-field::-webkit-scrollbar-thumb:hover {
+  background: rgb(95, 95, 95);
+}
+
+
+/* output */
+.output {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.output-container {
+  height: 85%;
+  background-color: rgb(199, 199, 199);
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.spinner {
+  height: 20%;
+}
+
+.output-field {
+  height: calc(100% - 10px);
+  margin: 5px;
+  font-size: 1rem;
+}
+
+.run-output {
+  height: calc(90% - 5px);
+  overflow: scroll;
+  margin: 5px 0;
+  background-color: white;
+  white-space: pre-wrap;
+}
+
+.run-output::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.run-output::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 25px;
+}
+
+.run-output::-webkit-scrollbar-thumb:hover {
+  background: rgb(95, 95, 95);
+}
+
+.decodedError {
+  color: rgb(255, 35, 35);
+}
+
+.decodedCompileOutput {
+  color: rgb(187, 154, 8);
+}
+
+.details {
+  display: flex;
+  flex-basis: 33%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  height: 10%;
+}
